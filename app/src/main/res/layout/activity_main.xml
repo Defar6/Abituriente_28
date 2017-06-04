@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_640x1136"
+    tools:context="com.example.abituriente.MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="По методике академика Е.А Климова"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ТЕСТ НА ПРОФОРИЕНТАЦИЮ"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="163dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_act_487x85"
+        android:text="Начало"
+        android:textColor="@color/colorAccent"
+        android:layout_marginBottom="47dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Предположим, что после соответсвующего обучения Вы сможите выполнить любую работу
+
+Предлагаем Вам 20 пар утверждений.Внимательно прочитав оба утверждения выберите то,которое больше соответсвует Вам"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/button"
+        android:gravity="center"/>
+
+</RelativeLayout>
