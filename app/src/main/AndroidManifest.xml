@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main2Activity"></activity>
-        <activity android:name=".MainFragment"></activity>  // Не принимает при обычном Fragment-e
     </application>
 
 </manifest>

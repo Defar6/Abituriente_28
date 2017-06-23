@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/Activ2"
     android:background="@drawable/background_640x1136"
     tools:context="com.example.abituriente.MainFragment">
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button32"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:background="@drawable/button_act_487x85"
-        android:text="ДАЛЕЕ"
+
         android:onClick="NextQuset"
         android:textColor="@color/colorAccent"
+        android:layout_marginBottom="47dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp" />
+        android:layout_centerHorizontal="true" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -25,16 +26,19 @@
         android:text="Ухаживать за животными"
         android:layout_marginBottom="68dp"
         android:layout_above="@+id/checkBox2"
-        android:layout_alignStart="@+id/checkBox2" />
+        android:layout_alignStart="@+id/checkBox2"
+        android:layout_alignParentLeft="true"
+        />
 
     <CheckBox
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Обслуживать машины, приборы (следить, регулировать)"
-        android:layout_marginBottom="91dp"
-        android:layout_above="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_marginBottom="46dp"
+        android:layout_above="@+id/button32"
+        android:layout_alignParentLeft="true"
+        />
 
     <TextView
         android:id="@+id/textView4"
@@ -63,6 +67,19 @@
         android:text="ВЫБЕРИТЕ ИЗ ДВУХ ВАРИАНТОВ"
         android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:max="100"
+        android:progress="0"
+
+        />
 
 
 </RelativeLayout>
