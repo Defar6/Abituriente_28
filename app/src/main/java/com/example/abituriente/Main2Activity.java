@@ -1,11 +1,11 @@
 package com.example.abituriente;
 
+import android.app.Activity;
 import android.content.Context;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -16,47 +16,59 @@ import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class Main2Activity extends Fragment {
+
+import static java.security.AccessController.getContext;
+
+public class Main2Activity extends Activity {
+    Button byt;
     TextView PervText,VtorText,TretText,ChetText,PetText;
     ProgressBar PervProg,VtorProg,TertProg,ChetProg,PetProg;
-    int One,Two,Three,Four,Five;
+    double One,Two,Three,Four,Five;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rot = inflater.inflate(R.layout.activity_main2, container, false);
-        PervText = (TextView) rot.findViewById(R.id.textView8);
-        VtorText = (TextView) rot.findViewById(R.id.textView9);
-        TretText = (TextView) rot.findViewById(R.id.textView10);
-        ChetText = (TextView) rot.findViewById(R.id.textView11);
-        PetText = (TextView) rot.findViewById(R.id.textView12);
-        PervProg = (ProgressBar)rot.findViewById(R.id.progressBar2);
-        VtorProg = (ProgressBar)rot.findViewById(R.id.progressBar3);
-        TertProg = (ProgressBar)rot.findViewById(R.id.progressBar4);
-        ChetProg = (ProgressBar)rot.findViewById(R.id.progressBar5);
-        PetProg = (ProgressBar)rot.findViewById(R.id.progressBar6);
-        return rot;
-    }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        One = getArguments().getInt("One");
-        Two = getArguments().getInt("Two");
-        Three = getArguments().getInt("Three");
-        Four = getArguments().getInt("Four");
-        Five = getArguments().getInt("Five");
+        setContentView(R.layout.activity_main2);
+        byt = (Button) findViewById(R.id.button5);
+        PervText = (TextView) findViewById(R.id.textView8);
+        VtorText = (TextView) findViewById(R.id.textView9);
+        TretText = (TextView) findViewById(R.id.textView10);
+        ChetText = (TextView) findViewById(R.id.textView11);
+        PetText = (TextView) findViewById(R.id.textView12);
+        PervProg = (ProgressBar)findViewById(R.id.progressBar2);
+        PervProg.getProgressDrawable().setColorFilter(Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        VtorProg = (ProgressBar)findViewById(R.id.progressBar3);
+        VtorProg.getProgressDrawable().setColorFilter(Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        TertProg = (ProgressBar)findViewById(R.id.progressBar4);
+        TertProg.getProgressDrawable().setColorFilter(Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        ChetProg = (ProgressBar)findViewById(R.id.progressBar5);
+        ChetProg.getProgressDrawable().setColorFilter(Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        PetProg = (ProgressBar)findViewById(R.id.progressBar6);
+        PetProg.getProgressDrawable().setColorFilter(Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        Bundle extras = getIntent().getExtras();
+        One = (extras.getDouble("one"))/8*100;
+        Two = (extras.getDouble("two"))/8*100;
+        Three = (extras.getDouble("three"))/8*100;
+        Four = (extras.getDouble("four"))/8*100;
+        Five = (extras.getDouble("five"))/8*100;
+        PervText.setText("Человек-природа  "+String.valueOf(One)+"%");
+        PervProg.setProgress((int)One);
+        VtorText.setText("Человек-техника  "+String.valueOf(Two)+"%");
+        VtorProg.setProgress((int)Two);
+        TretText.setText("Человек-человек  "+String.valueOf(Three)+"%");
+        TertProg.setProgress((int)Three);
+        ChetText.setText("Человек-знаковая система  "+String.valueOf(Four)+"%");
+        ChetProg.setProgress((int)Four);
+        PetText.setText("Человек-художественный образ  "+String.valueOf(Five)+"%");
+        PetProg.setProgress((int)Five);
+        byt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(this, Main3Activity.class);
+                startActivity(intent3);
+            }
+        });
     }
-    public static MainFragment newItens(int One, int Two, int Three,int Four,int Five) {
 
-        Bundle args = new Bundle();
-        args.putInt("One",One);
-        args.putInt("Two",Two);
-        args.putInt("Three",Three);
-        args.putInt("Four",Four);
-        args.putInt("Five",Five);
-        MainFragment fragment = new MainFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 }

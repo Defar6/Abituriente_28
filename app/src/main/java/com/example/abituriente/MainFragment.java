@@ -1,5 +1,6 @@
 package com.example.abituriente;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -66,7 +67,7 @@ public class MainFragment extends Fragment {
             "Заниматься черчением, копировать чертежи, карты",
             "Работать на клавишных машинах (пишущей машинке, телетайпе, наборной машине и др.)"};
 
-   int One,Two,Three,Four,Five;
+   double One,Two,Three,Four,Five;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,6 +79,7 @@ public class MainFragment extends Fragment {
         buta = (Button) root.findViewById(R.id.button32);
         Porg =(ProgressBar) root.findViewById(R.id.progressBar);
         Porg.getProgressDrawable().setColorFilter(Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+        Porg.setProgress(0);
         numberPageText.setText( numberPage + "/20" );
         firstCheck.setText(firstQuestion);
         secondCheck.setText(secondQuestion);
@@ -180,9 +182,13 @@ public class MainFragment extends Fragment {
                 firstCheck.setEnabled(true);
                 buta.setEnabled(false);
                 if (numberPage==20) {
-                    FragmentTransaction ftr = getFragmentManager().beginTransaction();
-                    ftr.replace(R.id.Activ2, Main2Activity.newItens(One, Two, Three, Four, Five));
-                    ftr.commit();
+                    Intent intent = new Intent(getContext(), Main2Activity.class);
+                    intent.putExtra("one",One);
+                    intent.putExtra("two",Two);
+                    intent.putExtra("three",Three);
+                    intent.putExtra("four",Four);
+                    intent.putExtra("five",Five);
+                    startActivity(intent);
                 }
                 if(numberPage!=20) {
                     Porg.setProgress(numberPage*5+5);
