@@ -1,21 +1,13 @@
 package com.example.abituriente;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 
 import static java.security.AccessController.getContext;
 
@@ -65,7 +57,7 @@ public class Main2Activity extends Activity {
         byt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent3 = new Intent(this, Main3Activity.class);
+                Intent intent3 = new Intent(getContext(), Main3Activity.class);
                 startActivity(intent3);
             }
         });
